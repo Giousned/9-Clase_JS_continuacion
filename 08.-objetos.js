@@ -17,6 +17,7 @@ const exampleObject = {
 // guardar funciones (métodos) u otro tipo de datos (propiedades).
 // A continuación podemos acceder mediante tres notaciones distintas:
 
+console.log(exampleObject);
 console.log(exampleObject.name);
 console.log(exampleObject?.age);
 console.log(exampleObject['owners']);

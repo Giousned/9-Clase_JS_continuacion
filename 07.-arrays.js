@@ -1,17 +1,17 @@
 // ARRAYS
 // Las arrays son listas, donde podemos almacenar cualquier tipo de dato.
 
-const thisIsAnArray = [
-    1,
-    'perrete',
-    [1, 2, 3, 4, 5],
-    false,
-    {
-        name: 'Zarigüeya',
-        animal: 'cat',
-        age: 2.5
-    }
-];
+// const thisIsAnArray = [
+//     1,
+//     'perrete',
+//     [1, 2, 3, 4, 5],
+//     false,
+//     {
+//         name: 'Zarigüeya',
+//         animal: 'cat',
+//         age: 2.5
+//     }
+// ];
 
 // console.log(thisIsAnArray);
 
@@ -34,15 +34,17 @@ const thisIsAnArray = [
 
 // console.log(thisIsAnotherArray)
 
-// Las arrays son pointers a un lugar de la memoria
+// Las arrays son pointers a un lugar de la memoria, un sitio. un link, una direccion
 
-// const arrayExampleOne = [1, 2, 3, 4];
-// const ourSecondExampleArray = arrayExampleOne;
+// const arrayExampleOne = [1, 2, 3, 4];           // Sitio1
+// const ourSecondExampleArray = arrayExampleOne;  // Sitio1
+// const safeCopy = [...arrayExampleOne];          // Sitio2
 
-// arrayExampleOne[0] = "Did you expect this?";
+// arrayExampleOne[0] = "Did you expect this?";    // Sitio1
 
-// console.log(arrayExampleOne);
-// console.log(ourSecondExampleArray);
+// console.log(arrayExampleOne);           // Sitio1
+// console.log(ourSecondExampleArray);     // Sitio1
+// console.log(safeCopy);     // Sitio2
 
 // Para evitar modificar las arrays originales podemos
 // hacer copias
@@ -69,17 +71,34 @@ const exercisesArray = ['one', 'two', 'three', 4, 5, 6, [7, 8, 9, 'ten']];
 
 // 1. Imprime en el terminal la longitud de exercisesArray
 
+console.log(exercisesArray.length);
+
 // 2. Imprime en el terminal el primer elemento de exercisesArray
+
+console.log(exercisesArray[0]);
 
 // 3. Imprime en el terminal el elemento 'two' dentro de exercisesArray
 
+console.log(exercisesArray[1]);
+
 // 4. Imprime en el terminal el array almacenado dentro de exercisesArray
+
+console.log(exercisesArray[6]);
+console.log(exercisesArray[exercisesArray.length-1]);
 
 // 5. Imprime en el terminal la longitud del array almacenado dentro de exercisesArray
 
+console.log(exercisesArray[6].length);
+console.log(exercisesArray[exercisesArray.length-1].length);
+
 // 6. Haz una copia de exercisesArray
 
+const copia = [...exercisesArray];
+console.log(copia);
+
 // 7. Cambia el primer índice de exercisesArray por el valor numérico 1
+
+exercisesArray[0] = 1;
 
 // 8. Utiliza la función printOnlyStrings para imprimir en consola
 // todas las strings almacenadas en exercisesArray
@@ -90,40 +109,87 @@ const printOnlyStrings = input => {
     }
 }
 
+exercisesArray.forEach(printOnlyStrings);
+exercisesArray.forEach(e => printOnlyStrings(e));
+
+
 // MÉTODOS
 
 // 0. Determina si exampleArrayToCheck es un array
 
 const exampleArrayToCheck = { one: 'two' };
 
+console.log(Array.isArray(exampleArrayToCheck));
+console.log(typeof []);
+console.log(typeof {});
+
+
 // 1. Une las arrays mergeOne y mergeTwo en una única array
 
 const mergeOne = ['one', 'two', 'three'];
 const mergeTwo = [1, 2, 3];
 
+// const unir = mergeOne + mergeTwo;
+// console.log(unir);                               // ESTE NO FUNCIONA, TRANSFORMA EN STRING
+// console.log(typeof unir);
+
+const unir2 = mergeOne.concat(mergeTwo);
+console.log(unir2);
+
+const unir3 = [...mergeOne,...mergeTwo];
+console.log(unir3);
+
+// const unir4 = mergeOne.push(mergeTwo);           // ESTE TAMPOCO FUNCIONA, DEVUELVE EL RETURN CON LA LONGITUD DESPUES DE AÑADIR EL ELEMENTO NUEVO.
+// console.log(unir4);
+
 // 2. Crea una función isLegalAge para determinar si el parámetro
 // proporcionado es mayor que 18
 
+const isLegalAge = edad => {
+    if (edad>18) return true;
+    else false;
+}
+
+const isLegalAge2 = edad => edad > 18;
 
 // 3. Utiliza la función isLegalAge para determinar si todos
 // los elementos de la array cumplen la condición.
 // NOTA: Queremos obtener un true/false
 
 const ageArray = [19, 38, 92, 84, 28, 71, 39, 44, 29, 91, 45, 32, 19, 63, 32, 33, 45, 18, 47, 54, 19, 46, 75, 51, 23, 34, 81, 108, 72, 26, 28, 24, 41, 51, 52, 75, 41, 51, 64, 81, 26];
+console.log(ageArray.every(isLegalAge2));
+console.log(ageArray.every(age => isLegalAge2(age)));           // TODOS LOS ELEMENTOS
+
+console.log(ageArray.some(age => isLegalAge2(age)));            // SOLO ALGUN ELEMENTO
+
 
 // 4. Crea una función isOverFifty para determinar si el parámetro
 // proporcionado es mayor que 50
 
+const isOverFifty = num => num > 50;
+
 // 5. Utiliza la función isOverFifty para encontrar las edades
 // superiores a 50
+
+console.log(ageArray.filter(e => isOverFifty(e)));
+
+
+
 
 const petsArray = ['dog', 'cat', 'goldfish', 'horse', 'cow', 'goat', 'python', 'parrot', 'ferret',  'hamster', 'pigeon', 'pig', 'rabbit',  'chicken', 'turtle', 'gorilla'];
 
 // 6. ¿Puedes encontrar la palabra 'gorilla' en petsArray?
 
+console.log(petsArray.find(e => e === 'gorilla'));
+console.log(petsArray.includes('gorilla'));
+
 // 7. ¿Si existe, puedes encontrar el índice de 'gorilla' en petsArray?
 
+console.log(petsArray.findIndex(e => e === 'gorilla'));
+
 // 8. Si existe, elimina la palabra 'gorilla' de petsArray
+
+
 
 // 9. Imprime en la terminal la nueva lista de mascotas,
 // separadas por una coma y un espacio. Ejemplo: "perro, gato, periquito... "
