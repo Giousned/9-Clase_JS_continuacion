@@ -183,38 +183,128 @@ const petsArray = ['dog', 'cat', 'goldfish', 'horse', 'cow', 'goat', 'python', '
 console.log(petsArray.find(e => e === 'gorilla'));
 console.log(petsArray.includes('gorilla'));
 
+
 // 7. ¿Si existe, puedes encontrar el índice de 'gorilla' en petsArray?
 
 console.log(petsArray.findIndex(e => e === 'gorilla'));
+console.log(petsArray.indexOf('gorilla'));
 
 // 8. Si existe, elimina la palabra 'gorilla' de petsArray
 
+const copiaPetsArray = [...petsArray];
+const copiaPetsArray2 = [...petsArray];
+const copiaPetsArray3 = [...petsArray];
+
+
+
+console.log(petsArray.filter(e => e !== 'gorilla'));
+
+
+
+delete(copiaPetsArray[petsArray.indexOf('gorilla')]);                   // SE QUEDA EL HUECO VACIO
+console.log(copiaPetsArray);
+
+
+
+console.log(copiaPetsArray2.splice(0,15));                               // ES EL ULTIMO ELEMENTO
+
+
+
+const wordGorillaDelete = copiaPetsArray3.pop();                        // SE PUEDE BORRAR ASÍ PORQUE ES EL ULTIMO O EL PRIMER ELEMENTO (SHIFT), EN ESTE CASO ULTIMO
+console.log(wordGorillaDelete);
+const petsArrayWithoutGorilla = [...copiaPetsArray3];
+console.log(petsArrayWithoutGorilla);
 
 
 // 9. Imprime en la terminal la nueva lista de mascotas,
 // separadas por una coma y un espacio. Ejemplo: "perro, gato, periquito... "
 
+console.log(petsArrayWithoutGorilla.join(", ").toString());
+
 // 10. Vuelve a imprimir la ista, pero ahora en orden inverso
+
+console.log(petsArrayWithoutGorilla.reverse().join(", ").toString());
+
+const copiaPetsArray4 = petsArray.filter(e => e !== 'gorilla');
+const reverseOrden = copiaPetsArray4.reverse();                             // REVERSE NO FUNCIONA CON ARRAYS COPIADOS CON EL SPREAD ...
+
+console.log(reverseOrden);
+
 
 // 11. ¿Alguna de las mascotas tiene más de tres letras?
 
+console.log(petsArray.some(e => e.length>3));                           // ALGUNAS
+
+console.log(petsArray.every(e => e.length>3));                          // TODAS
+
+console.log(petsArray.filter(e => e.length>3));                         // ALGUNAS LO COMPRUEBA Y LAS DEVUELVE, ANTES SOLO TRUE OR FALSE
+
+
 // 12. Ordena alfabéticamente la lista de mascotas
+
+console.log(petsArray.sort());
 
 // 13. Añade un signo de exclamación al final del
 // nombre de cada mascota
 
+console.log(petsArray.toString().split('!'));
+
+console.log(petsArray.join('!'));
+
+const newArr = Array.from(petsArray.join('!'));
+console.log(newArr);
+
+
+
 // 14. Elimina la última mascota de la lista, guarda su
 // nombre en una variable e imprímela en la terminal
 
+const copiaPetsArray5 = [...petsArray];
+
+const wordGorillaDelete2 = copiaPetsArray5.pop();                    // SE PUEDE BORRAR ASÍ PORQUE ES EL ULTIMO O EL PRIMER ELEMENTO (SHIFT), EN ESTE CASO ULTIMO
+console.log(wordGorillaDelete2);
+
 // 15. Ahora introduce ese nombre al principio del array
+
+const arrayIntroNombre = [...copiaPetsArray5];
+arrayIntroNombre.unshift(wordGorillaDelete2);                        // SE PUEDE INSERTAT ASÍ PORQUE ES EL ULTIMO (PUSH) O EL PRIMER ELEMENTO (UNSHIFT), EN ESTE CASO PRIMER
+console.log(arrayIntroNombre);
 
 // 16. Elimínalo de nuevo del principio del array,
 // guardándolo en una nueva variable
 
+
+const wordGorillaDelete3 = arrayIntroNombre.shift();                // SE PUEDE BORRAR ASÍ PORQUE ES EL ULTIMO (POP) O EL PRIMER ELEMENTO (SHIFT), EN ESTE CASO PRIMER
+console.log(wordGorillaDelete3);
+
+
 // 17. Ahora introdúcelo al final del array
 
+
+const arrayFinNombre = [...copiaPetsArray5];
+arrayFinNombre.push(wordGorillaDelete3);                         // SE PUEDE INSERTAR ASÍ PORQUE ES AL FINAL (PUSH) O AL INICIO (UNSHIFT), EN ESTE CASO FINAL
+console.log(arrayFinNombre);
+
+
 // 19. Imprime por pantalla los primeros 5 animales de la lista
+
+
+for (let i=0; i<5; i++) console.log(petsArray[i]);
+
+
+let guardar = petsArray.slice(0,5);
+console.log(guardar);
+
+petsArray.splice(5)
+console.log(petsArray);
+
+console.log(petsArray.slice(0,5));
+console.log(petsArray.splice(0,5));
+
 
 // 20. Completa la lista añadiendo 'Feb' en la segunda posición
 
 const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1,0,'Feb');
+console.log(months);
+

@@ -155,3 +155,7 @@ console.log(calcular(10,100,suma));
 imprimir(calcular(200,100,suma));
 
 imprimir(calcular2(50,100,resta));
+
+imprimir(calcular2(50,100,multiplicacion));
+
+imprimir(calcular2(50,100,division));
