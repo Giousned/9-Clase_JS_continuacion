@@ -197,6 +197,8 @@ const copiaPetsArray3 = [...petsArray];
 
 
 
+
+
 console.log(petsArray.filter(e => e !== 'gorilla'));
 
 
@@ -225,11 +227,13 @@ console.log(petsArrayWithoutGorilla.join(", ").toString());
 
 console.log(petsArrayWithoutGorilla.reverse().join(", ").toString());
 
-const copiaPetsArray4 = petsArray.filter(e => e !== 'gorilla');
-const reverseOrden = copiaPetsArray4.reverse();                             // REVERSE NO FUNCIONA CON ARRAYS COPIADOS CON EL SPREAD ...
+const copiaPetsArray5 = petsArray.filter(e => e !== 'gorilla');
+const reverseOrden = copiaPetsArray5.reverse();                             // REVERSE NO FUNCIONA CON ARRAYS COPIADOS CON EL SPREAD ...
 
 console.log(reverseOrden);
 
+const copiaPetsArray4 = [...petsArray];
+console.log(copiaPetsArray4.reverse()); 
 
 // 11. ¿Alguna de las mascotas tiene más de tres letras?
 
@@ -247,26 +251,31 @@ console.log(petsArray.sort());
 // 13. Añade un signo de exclamación al final del
 // nombre de cada mascota
 
-console.log(petsArray.toString().split('!'));
+// const strWithSymbol = copiaPetsArray4.join('!, ');
+// console.log(strWithSymbol);
 
-console.log(petsArray.join('!'));
 
-const newArr = Array.from(petsArray.join('!'));
-console.log(newArr);
+// const newArr2 = strWithSymbol.split(',');                                // ESTOS NO HACEN EXACTAMENTE ESO, SOLO AÑADEN UNA ! ENTRE 2 ITEMS (PALABRAS-STRING) DEL ARRAY, PERO EL INICIO Y EL FINAL SON DIFERENTES.
+// console.log(newArr2);
 
+
+// console.log(copiaPetsArray4.join('!, ').split(','));
+
+
+console.log(petsArray.map(e => e.concat('!')));
 
 
 // 14. Elimina la última mascota de la lista, guarda su
 // nombre en una variable e imprímela en la terminal
 
-const copiaPetsArray5 = [...petsArray];
+const copiaPetsArray6 = [...petsArray];
 
-const wordGorillaDelete2 = copiaPetsArray5.pop();                    // SE PUEDE BORRAR ASÍ PORQUE ES EL ULTIMO O EL PRIMER ELEMENTO (SHIFT), EN ESTE CASO ULTIMO
+const wordGorillaDelete2 = copiaPetsArray6.pop();                    // SE PUEDE BORRAR ASÍ PORQUE ES EL ULTIMO O EL PRIMER ELEMENTO (SHIFT), EN ESTE CASO ULTIMO
 console.log(wordGorillaDelete2);
 
 // 15. Ahora introduce ese nombre al principio del array
 
-const arrayIntroNombre = [...copiaPetsArray5];
+const arrayIntroNombre = [...copiaPetsArray6];
 arrayIntroNombre.unshift(wordGorillaDelete2);                        // SE PUEDE INSERTAT ASÍ PORQUE ES EL ULTIMO (PUSH) O EL PRIMER ELEMENTO (UNSHIFT), EN ESTE CASO PRIMER
 console.log(arrayIntroNombre);
 
@@ -281,7 +290,7 @@ console.log(wordGorillaDelete3);
 // 17. Ahora introdúcelo al final del array
 
 
-const arrayFinNombre = [...copiaPetsArray5];
+const arrayFinNombre = [...copiaPetsArray6];
 arrayFinNombre.push(wordGorillaDelete3);                         // SE PUEDE INSERTAR ASÍ PORQUE ES AL FINAL (PUSH) O AL INICIO (UNSHIFT), EN ESTE CASO FINAL
 console.log(arrayFinNombre);
 

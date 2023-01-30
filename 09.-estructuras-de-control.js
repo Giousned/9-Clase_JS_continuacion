@@ -24,13 +24,32 @@
 // EJERCICIOS
 
 const oneToHundredArray = Array.from({length: 100}, (_, i) => i + 1)
+console.log(oneToHundredArray);
 
 // 1. Crea una función printOdds que reciba los primeros 100 números
 // enteros e imprima en la consola los números impares
 
+const printOdds = arrayNumeros => {
+    for (let item of arrayNumeros){
+        if (item%2 !== 0) console.log(item);
+    }
+}
+
+printOdds(oneToHundredArray);
+
+
 // 2. Crea una función detectPairs que reciba los primeros 100 números
 // enteros e imprima en la consola 'par' cuando
 // reciba un número par e 'impar' cuando reciba un impar
+
+const detectPairs = arrayNumeros => {
+    for (let item of arrayNumeros){
+        if (item%2 === 0) console.log("par");
+         else console.log("impar");
+    }
+}
+
+detectPairs(oneToHundredArray);
 
 // 3. FizzBuzz: crea una function fizzBuzz que reciba los primeros 100
 // números enteros e imprima en la consola:
@@ -39,11 +58,50 @@ const oneToHundredArray = Array.from({length: 100}, (_, i) => i + 1)
 // - FizzBuzz si es múltiplo de 3 y de 5
 // - El número recibido en otro caso
 
+
+const fizzBuzz = arrayNumeros => {
+    for (let item of arrayNumeros){
+        if (item%3 === 0 && item%5 === 0) console.log("FizzBuzz");
+            else if (item%3 === 0) console.log("Fizz");
+                else if (item%5 === 0) console.log("Buzz");
+                    else console.log(item);
+    }
+}
+
+fizzBuzz(oneToHundredArray);
+
+
+
+
 // switch - break - default
 
 // EJERCICIO
 
 // 1. Repetir el FizzBuzz
+
+// const fizzBuzz2 = arrayNumeros => {
+
+//     for (let item of arrayNumeros){
+
+//         switch (item){
+//             case (item%3 === 0 && item%5 === 0):
+//             console.log("FizzBuzz");
+
+//             case (item%3 === 0):
+//             console.log("Fizz");
+
+//             case (item%5 === 0):
+//             console.log("Fizz");
+
+//             default: console.log(item);
+
+//         }
+//     }
+// }
+
+// fizzBuzz2(oneToHundredArray);
+
+
 
 // for - continue
 
@@ -56,12 +114,32 @@ const oneToHundredArray = Array.from({length: 100}, (_, i) => i + 1)
 // 1. Crea un contador que imprima en pantalla
 // los números naturales del 1 al 100
 
+for (let i = 1; i <= 100; i++) {
+    console.log(i);
+}
+
+for (let i = 1; i < 101; i++) {
+    console.log(i);
+}
+
 // 2. Crea un contador que imprima en pantalla
 // los números naturales impares del 1 al 100
+
+for (let i = 1; i <= 100; i++) {
+    if (i%2 !== 0) console.log(i);
+}
 
 // 3. Modifica tu anterior contador para que
 // imprima los números naturales impares del
 // 100 al 1
+
+for (let i = 100; i >= 1; i--) {
+    if (i%2 !== 0) console.log(i);
+}
+
+for (let i = 100; i > 0; i--) {
+    if (i%2 !== 0) console.log(i);
+}
 
 // for in
 
