@@ -79,27 +79,29 @@ fizzBuzz(oneToHundredArray);
 
 // 1. Repetir el FizzBuzz
 
-// const fizzBuzz2 = arrayNumeros => {
+const fizzBuzz2 = arrayNumeros => {
 
-//     for (let item of arrayNumeros){
+    for (let item of arrayNumeros){
 
-//         switch (item){
-//             case (item%3 === 0 && item%5 === 0):
-//             console.log("FizzBuzz");
+        switch (true){                                                          // HAY QUE PONER TRUE AQUI, PORQUE LOS CASE TIENEN EXPRESIONES Y NO VALORES EXACTOS
+            case (item%3 === 0 && item%5 === 0):
+            console.log("FizzBuzz");
+            break;
 
-//             case (item%3 === 0):
-//             console.log("Fizz");
+            case (item%3 === 0):                                                // LOS CASES SON EXPRESIONES Y NO UN VALOR EXACTO
+            console.log("Fizz");
+            break;
 
-//             case (item%5 === 0):
-//             console.log("Fizz");
+            case (item%5 === 0):
+            console.log("Fizz");
+            break;
 
-//             default: console.log(item);
+            default: console.log(item);
+        }
+    }
+}
 
-//         }
-//     }
-// }
-
-// fizzBuzz2(oneToHundredArray);
+fizzBuzz2(oneToHundredArray);
 
 
 
@@ -141,46 +143,87 @@ for (let i = 100; i > 0; i--) {
     if (i%2 !== 0) console.log(i);
 }
 
+
+
+
 // for in
 
-// const sampleObject = { a: 1, b: 2, c: 3 };
+const sampleObject = { a: 1, b: 2, c: 3 };
 
-// for (const property in sampleObject) {
-//   console.log(property);
-// }
+for (const property in sampleObject) {
+  console.log(property);
+}
 
-// EJERCICIO
-
-// 1. Itera sobre oneToHundredArray para imprimir en
-// pantalla una cuenta de 2 en 2 desde 2 hasta 200
-
-// 2. Ahora crea un FizzBuzz
-
-// for of
-
-// for (const number of oneToHundredArray) {
-//     console.log(number);
-// }
 
 // EJERCICIO
 
 // 1. Imprime todas las propiedades y valores de
 // sampleObject. Ejemplo: "Propiedad a: valor 1, ..."
 
+for (const property in sampleObject){
+    console.log(`${property}: ${sampleObject[property]}`);
+}
+
+
+for (const property in sampleObject) {
+    console.log(sampleObject);
+}
+
+
+console.log(sampleObject);
+
+
+console.log(Object.entries(sampleObject));
+
+
+
+// for of
+
+// const oneToHundredArray = Array.from({length: 100}, (_, i) => i + 1)
+// console.log(oneToHundredArray);
+
+for (const number of oneToHundredArray) {
+    console.log(number);
+}
+
+
+// EJERCICIO
+
+// 1. Itera sobre oneToHundredArray para imprimir en
+// pantalla una cuenta de 2 en 2 desde 2 hasta 200
+
+for (const number of oneToHundredArray) {
+    console.log(number*2);
+}
+
+// 2. Ahora crea un FizzBuzz
+
+for (const number of oneToHundredArray){
+    if (number%3 === 0 && number%5 === 0) console.log("FizzBuzz");
+        else if (number%3 === 0) console.log("Fizz");
+            else if (number%5 === 0) console.log("Buzz");
+                else console.log(number);
+}
+
+
 // while
+
+
+let currentNumber = 0;
+
+while (currentNumber < 100) {
+  currentNumber++;
+  console.log(currentNumber);
+}
+
+
+
+
 // do while
 
-// let currentNumber = 0;
+let currentNumber2 = 1;
 
-// while (currentNumber < 100) {
-//   currentNumber++;
-// }
-
-// console.log(currentNumber);
-
-// let currentNumber = 0;
-
-// do {
-//     console.log(currentNumber);
-//     currentNumber++;
-// } while (currentNumber < 0);
+do {
+    console.log(currentNumber2);
+    currentNumber2++;
+} while (currentNumber2 < 101);
